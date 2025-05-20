@@ -21,8 +21,17 @@ Here's a breakdown of the key steps and insights:
 * Normalization: Performed CountVectorization to remove stopwords of English and all “non-english” words from the text and count the word in the text.
 * Feature Extraction:Performed TFIDF to extract features
 * Stemming/Lemmitization 
-* Baseline Classifier: Applied Dummy Classifier and got 68% of accuracy_score
-* Logistic Regression: A Logistic regression model is trained with Count Vectorization and received accuracy_Score of 98%
+* Baseline Classifier: Applied Dummy Classifier and got 86% of accuracy_score
+* Logistic Regression: A Logistic regression model is trained with TFIDF Vectorization and received accuracy_Score of 76%
+* Decision Tree: Decision Tree model is trained with TFIDF and received accuracy_score of 76%
+* K Nearest Neighbors: K Nearest Neighbors model is trained with TFIDF and received accuracy_score of 99.9%
+* Support Vector Machine:SVM model is trained with TFIDF and received accuracy_score of 99.8%
+* Naive Bayes:This model is trained with TFIDF and received accuracy_score of  1
 
-4. Evaluation: To be Completed
+LatentDirichlet Allocation: Applied LDA embedding and applied Logistic Regression on the data and achieved accuracy _score of 1
+NMF : Applied NMF embedding and applied Logistic Regression on the data and achieved accuracy _score of 1
+4. Evaluation: 
+Evaluated all these models on the basis of metrics such as F1Score, Precision, Recall and Accuracy Score. Also checked the Confusion Matrix to identify the number of TruePositives, TrueNegatives. 
 
+![Screenshot 2025-05-20 at 11 04 45 AM](https://github.com/user-attachments/assets/0113bd56-1173-4fb7-81d2-1e87a956bdcb)
+Based on all of these , Naive Bayes has outperformed all the other models.
