@@ -34,24 +34,33 @@ Here's a breakdown of the key steps and insights:
 ##### Data Preparation: 
 **Feature Engineering**: An ‘text length” column is created to check if that helps in the classification.\
 **Data Cleaning**: Columns with identifiers (prompt_id, text_id) are removed as they don't contribute to text.\
-**Data Type Conversion**: All text columns are converted to string type.\
+**Data Type Conversion**: All text columns are converted to string type.
 ##### Modeling:
 **Train-Test Split**: Data is split into 80% training and 20% testing sets.\
-**Normalization**: Performed CountVectorization to remove stopwords of English and all “non-english” words from the text and count the word in the text.\
-**Feature Extraction**:Performed TFIDF to extract features
-**Baseline Classifier**: Applied Dummy Classifier and got 86% of accuracy_score.\
-**Logistic Regression**: A Logistic regression model is trained with TFIDF Vectorization and received accuracy_Score of 76%.\
-**Decision Tree**: Decision Tree model is trained with TFIDF and received accuracy_score of 76%.\
-**K Nearest Neighbors**: K Nearest Neighbors model is trained with TFIDF and received accuracy_score of 99.9%.\
-**Support Vector Machine**: SVM model is trained with TFIDF and received accuracy_score of 99.8%.\
-**Naive Bayes**:This model is trained with TFIDF and received accuracy_score of  1.\
-**LatentDirichlet Allocation:** Applied LDA embedding and applied Logistic Regression on the data and achieved accuracy _score of 1\
-**NMF** : Applied NMF embedding and applied Logistic Regression on the data and achieved accuracy _score of 1\
-#### Results
-Evaluated all these models on the basis of metrics such as F1Score, Precision, Recall and Accuracy Score. Also checked the Confusion Matrix to identify the number of TruePositives, TrueNegatives. 
-![Screenshot 2025-05-20 at 4 12 56 PM](https://github.com/user-attachments/assets/47ad3d49-dbbb-4e7a-978d-37fcc602106e)
+**Normalization**: Perform CountVectorization to remove stopwords of English and all “non-english” words from the text and count the word in the text. Apply Logistic Regression with such data \
+**Feature Extraction**:Performed TFIDF to extract features.TFIDF  stands for Term Frequency-Inverse Document Frequency, is a numerical statistic that reflects the importance of a word in a document relative to a collection of documents. 
+**Baseline Classifier**: Applied Dummy Classifier on data extracted with TFIDF Vectorizer and got 73.3% of accuracy_score.\
+**Logistic Regression**: 
+Logistic regression predicts the probability of text being AI generated. 
 
-Based on all of these , Naive Bayes has outperformed all the other models.
+A Logistic regression model is trained with TFIDF Vectorized data and received accuracy_Score of 99.7%.\
+A Logistic regression model is trained with Count Vectorized data and received accuracy_Score of 86.8%.\
+**Decision Tree**: Decision Tree maps all potential possibilities of text being AI generated. Decision Tree model is trained with TFIDF and received accuracy_score of 97.04%.\
+**K Nearest Neighbors**: This model  works by identifying the k most similar data points (neighbors) to a new data point and using their labels or values to predict the new point's class or value. K Nearest Neighbors model is trained with TFIDF and received accuracy_score of 99.9%.\
+**Support Vector Classifier(SVC)**: SVC finds the best-fitting line (or hyperplane in higher dimensions) that separates different data classes, maximizing the distance between the line and the closest data points of each class. This distance is called the margin, and SVMs aim to find the hyperplane that maximizes this margin. SVM model is trained with TFIDF and received accuracy_score of 99.8%.\
+**Naive Bayes**:This model is based on Bayes theorem with assumption that features are independent. This model calculates probability of text being AI generated. This model is trained with TFIDF data and received accuracy_score of  100%.\
+**LatentDirichlet Allocation(LDA)**:This model aims to discover the latent topics (hidden themes) within a collection of texts.  Applied LDA embedding and applied Logistic Regression on the data and achieved accuracy _score of 97.6%\
+**NMF** : Applied NMF embedding and applied Logistic Regression on the data and achieved accuracy _score of 86.9%
+#### Results
+Fine tuned SVC model with different parameters using Grid SearchCV. 
+Best parameters of SVC was C(regularization parameter)=10 and svc_probability=True.
+Fine tuned Naive Bayes model with different parameters using Grid SearchCV. 
+Best parameters of Naive bayes was alpha=1 
+
+Evaluated all these models on the basis of metrics such as F1Score, Precision, Recall and Accuracy Score. Also checked the Confusion Matrix to identify the number of TruePositives, TrueNegatives,False Positive and false Negatives. 
+![Screenshot 2025-05-20 at 6 38 13 PM](https://github.com/user-attachments/assets/4a8c5f24-737a-4952-8b3a-7430db8fc85f)
+Based on all of these , Naive Bayes has outperformed all the other 
+models.
 
 #### Next steps
 We can explore more by identifying text specific to subject and list of words that appear only in AI generated text and those that appear only in original text.
@@ -66,7 +75,7 @@ We can explore more by identifying text specific to subject and list of words th
 
 
 Indira Jyothi Yellapragada
+[Linked In](https://www.linkedin.com/in/indirajyothi-yellapragada/)
 Email: indirajyothi.yellapragada@gmail.com
-
 
 
